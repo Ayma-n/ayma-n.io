@@ -8,13 +8,15 @@ import linkedinLogo from "./images/linkedin-3-64.png"
 export default function Home() {
     return (
         <div className="h-screen w-screen text-white" id="Home">
-            <div id="my-name" className="font-bold text-xl ml-6 pt-8">
-                Ayman Benjelloun Touimi
-            </div>
-            <div id="menu" className="flex flex-row gap-4 text-lg justify-center pt-5">
-                <Link id="home-link" to="/">home</Link>
-                <Link id="projects-link" to="/projects">projects</Link>
-                <Link id="projects-link" to="/blog">blog</Link>
+            <div id="name-and-menu" className="pt-8 md:w-screen md:flex md:flex-row md:justify-between">
+                <div id="my-name" className="font-bold text-xl ml-6">
+                    Ayman Benjelloun Touimi
+                </div>
+                <div id="menu" className="flex flex-row gap-4 text-lg justify-center pt-5 md:pt-0 md:mr-16">
+                    <Link id="home-link" to="/">home</Link>
+                    <Link id="projects-link" to="/projects">projects</Link>
+                    <Link id="projects-link" to="/blog">blog</Link>
+                </div>
             </div>
             <div id="ayman-profile">
                 <img className="w-20 ml-6 pt-28" src={aymanProfile}></img>
