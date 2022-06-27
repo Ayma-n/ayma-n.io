@@ -19,9 +19,9 @@ export default function Home() {
                 </div>
             </div>
             <div id="main-content-wrapper" className="flex-grow flex justify-center items-center">
-                <div id="main-content" className="md:flex md:flex-row-reverse md:justify-center md:gap-8">
+                <div id="main-content" className="md:flex md:flex-row-reverse md:justify-center md:gap-8 md:items-center">
                     <div id="ayman-profile">
-                        <img className="w-20 ml-6 md:w-72" src={aymanProfile}></img>
+                        <img className="w-20 md:w-72" src={aymanProfile}></img>
                     </div>
                     <div id="text-and-socials">
                         <div id="main-titles" className="font-bold text-xl md:text-2xl ml-6">
