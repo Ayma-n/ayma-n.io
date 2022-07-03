@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import "./Home.css"
 import aymanProfile from "./images/ayman-profile.png"
@@ -17,8 +17,6 @@ export default function Home() {
     const handleAboutClick = () => {
         (aboutDivRef.current as HTMLDivElement).style.display = 'flex';
         aboutDivRef.current?.scrollIntoView({ behavior: 'smooth' });
-
-        //(aymanProfileRef.current as HTMLDivElement).style.display = 'none';
     }
 
     const renderProfile = (isWider : boolean) => {
@@ -34,12 +32,12 @@ export default function Home() {
         <div className="h-screen w-screen text-white flex flex-col" id="Home">
             <div id="name-and-menu" className="pt-8 fixed w-screen md:flex md:flex-row md:justify-between">
                 <div id="my-name" className="font-bold text-xl ml-6">
-                    Ayman Benjelloun Touimi
+                    <Link to="/">Ayman Benjelloun Touimi</Link>
                 </div>
                 <div id="menu" className="flex flex-row gap-4 text-lg justify-center pt-5 md:pt-0 md:mr-16">
-                    <Link id="home-link" to="/">home</Link>
-                    <Link id="projects-link" to="/projects">projects</Link>
-                    <Link id="projects-link" to="/blog">blog</Link>
+                    <Link id="home-link" className="hover:text-gray-200" to="/">home</Link>
+                    <Link id="projects-link" className="hover:text-gray-200" to="/projects">projects</Link>
+                    <Link id="projects-link" className="hover:text-gray-200" to="/blog">blog</Link>
                 </div>
             </div>
             <div id="main-content-wrapper" className="flex-grow flex justify-center items-center">
