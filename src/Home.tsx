@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import "./Home.css"
 import aymanProfile from "./images/ayman-profile.png"
@@ -6,7 +6,15 @@ import githubLogo from "./images/GitHub-Mark-Light-64px.png"
 import linkedinLogo from "./images/linkedin-3-64.png"
 
 export default function Home() {
-    return (
+
+    const aboutDivRef = useRef<null | HTMLDivElement>(null);
+
+    const handleAboutClick = () => {
+        (aboutDivRef.current as HTMLDivElement).style.display = 'block'
+        aboutDivRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }
+
+    return (<>
         <div className="h-screen w-screen text-white flex flex-col" id="Home">
             <div id="name-and-menu" className="pt-8 md:w-screen md:flex md:flex-row md:justify-between">
                 <div id="my-name" className="font-bold text-xl ml-6">
@@ -39,7 +47,7 @@ export default function Home() {
                                 <img id="linkedin-logo" className="w-7" src={linkedinLogo} />
                             </a>
                         </div>
-                        <div className="box-border rounded-xl h-11 w-52 mt-7 cst-bg-white-transparent border-solid border-2 border-white ml-auto mr-auto md:ml-6 md:mt-12">
+                        <div onClick={handleAboutClick} className="box-border rounded-xl h-11 w-52 mt-7 cst-bg-white-transparent border-solid border-2 border-white ml-auto mr-auto md:ml-6 md:mt-12">
                             <div className="text-center align-middle leading-10">
                                 learn more about me 🤗
                             </div>
@@ -48,5 +56,6 @@ export default function Home() {
                 </div>
             </div>
         </div>
-    )
+        <div ref={aboutDivRef} className="h-screen bg-red-900 hidden"></div>
+    </>)
 }
