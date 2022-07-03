@@ -16,7 +16,7 @@ export default function Home() {
 
     return (<>
         <div className="h-screen w-screen text-white flex flex-col" id="Home">
-            <div id="name-and-menu" className="pt-8 md:w-screen md:flex md:flex-row md:justify-between">
+            <div id="name-and-menu" className="pt-8 fixed md:w-screen md:flex md:flex-row md:justify-between">
                 <div id="my-name" className="font-bold text-xl ml-6">
                     Ayman Benjelloun Touimi
                 </div>
@@ -56,6 +56,6 @@ export default function Home() {
                 </div>
             </div>
         </div>
-        <div ref={aboutDivRef} className="h-screen bg-red-900 hidden"></div>
+        <div id="About" ref={aboutDivRef} className="h-screen hidden"></div>
     </>)
 }

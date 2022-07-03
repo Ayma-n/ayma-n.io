@@ -553,6 +553,10 @@ video {
   visibility: hidden;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .ml-6 {
   margin-left: 1.5rem;
 }
