@@ -20,7 +20,7 @@ export default function Home() {
     }
 
     const renderProfile = (isWider : boolean) => {
-        var imageWidth; isWider ? imageWidth = "w-40 md:w-96" : imageWidth = "w-20 md:w-72";
+        var imageWidth; isWider ? imageWidth = "w-40 md:w-96 md:ml-48" : imageWidth = "w-20 md:w-72";
         return (
         <div id="ayman-profile">
             <img className={"ml-6 pb-3 md:ml-0 md:pb-0 " + imageWidth} src={aymanProfile}></img>
@@ -69,7 +69,7 @@ export default function Home() {
                 </div>
             </div>
         </div>
-        <div id="About" ref={aboutDivRef} className="h-screen w-screen flex justify-center items-center">
+        <div id="About" ref={aboutDivRef} className="h-screen w-screen flex items-center">
             {renderProfile(true)}
         </div>
     </>)
