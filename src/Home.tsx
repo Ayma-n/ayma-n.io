@@ -25,7 +25,7 @@ export default function Home() {
                     </div>
                     <div id="text-and-socials">
                         <div id="main-titles" className="font-bold text-xl md:text-2xl ml-6">
-                            <div>hi there!</div>
+                            <div>hi there! 👋</div>
                             <div className="text-3xl md:text-4xl">my name is Ayman.</div>
                         </div>
                         <div id="short-presentation" className="ml-6 pt-2 md:w-3/4">
@@ -39,9 +39,9 @@ export default function Home() {
                                 <img id="linkedin-logo" className="w-7" src={linkedinLogo} />
                             </a>
                         </div>
-                        <div className="box-border rounded-xl w-40 h-11 mt-7 cst-bg-white-transparent border-solid border-2 border-white ml-auto mr-auto md:ml-6 md:mt-12">
+                        <div className="box-border rounded-xl h-11 w-52 mt-7 cst-bg-white-transparent border-solid border-2 border-white ml-auto mr-auto md:ml-6 md:mt-12">
                             <div className="text-center align-middle leading-10">
-                                about me
+                                learn more about me 🤗
                             </div>
                         </div>
                     </div>
