@@ -13,3 +13,8 @@
 .cst-bg-white-transparent:hover {
     background: rgba(255, 255, 255, 0.10);
 }
+
+.moved {
+    transform: translateY(-80px);
+    transition: transform 1s;
+}

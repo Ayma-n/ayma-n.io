@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { LegacyRef, MutableRefObject, ReactNode, Ref } from 'react'
 
 interface InfoBoxProps {
     icon: string,
@@ -6,9 +6,9 @@ interface InfoBoxProps {
     children: ReactNode
 }
 
-export default function InfoBox(props: InfoBoxProps) {
+const InfoBox = React.forwardRef((props : InfoBoxProps, ref : LegacyRef<HTMLDivElement> | undefined) => {
     return (
-        <div id="InfoBox" className="text-white">
+        <div id="InfoBox" ref={ref} className="text-white">
             <div id="title-icon" className="flex flex-row items-center gap-3">
                 <img src={props.icon} className="w-12 h-12"></img>
                 <div>{props.title}</div>
@@ -16,4 +16,6 @@ export default function InfoBox(props: InfoBoxProps) {
             {props.children}
         </div>
     )
-}
+})
+
+export default InfoBox;

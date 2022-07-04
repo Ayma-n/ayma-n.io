@@ -9,16 +9,58 @@ import InfoBox from './InfoBox'
 export default function Home() {
 
     const aboutDivRef = useRef<null | HTMLDivElement>(null);
-    const aymanProfileRef = useRef<null | HTMLDivElement>(null);
+    const infoBoxRef = useRef<null | HTMLDivElement>(null); // Temporary any here.
+    const titleBRef = useRef<null | HTMLDivElement>(null);
+
+    const refs = {
+        a: useRef<null | HTMLDivElement>(null),
+        b: useRef<null | HTMLDivElement>(null),
+        c: useRef<null | HTMLDivElement>(null),
+        d: useRef<null | HTMLDivElement>(null),
+    }
 
     useEffect(() => {
         (aboutDivRef.current as HTMLDivElement).style.display = 'none';
+        document.getElementById("info-box-wrapper")?.addEventListener("scroll", handleInfoBoxScroll);
     }, [])
 
     const handleAboutClick = () => {
         (aboutDivRef.current as HTMLDivElement).style.display = 'flex';
         aboutDivRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
+
+    const handleInfoBoxScroll = () => {
+        console.log("scrolled in info box");
+        (infoBoxRef.current as HTMLDivElement).style.overflowY = 'hidden';
+        // titleBRef.current ? console.log("yes") : console.log("no")
+        // titleBRef.current?.classList.add("moved");
+        refs.b.current ? console.log("yes") : console.log("no")
+        refs.b.current?.classList.add("moved");
+        refs.b.current?.addEventListener("transitionend", () => {
+            (infoBoxRef.current as HTMLDivElement).style.overflowY = 'scroll';
+        })
+        // titleBRef.current?.addEventListener("transitionend", () => {
+        //     (infoBoxRef.current as HTMLDivElement).style.overflowY = 'scroll';
+        // })
+    }
+
+    const handleTestClick = () => {
+        console.log("yes! it has been clicked.")
+        infoBoxRef.current?.classList.add("moved");
+        //titleBRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }
+
+    // window.addEventListener('scroll', (e) => {
+    //     console.log("has scrolled.")
+    // })
+
+    // titleBRef.current?.addEventListener("scroll", () => {
+    //     console.log("you scrolled through the div.")
+    // })
+
+    // document.getElementById("info-box-wrapper")?.addEventListener("scroll", () => {
+    //     console.log("hellooooo");
+    // })
 
     const renderProfile = (isWider: boolean) => {
         var imageWidth; isWider ? imageWidth = "w-40 md:w-96 md:ml-48" : imageWidth = "w-20 md:w-72";
@@ -72,19 +114,20 @@ export default function Home() {
         </div>
         <div id="About" ref={aboutDivRef} className="h-screen w-screen flex items-center">
             {renderProfile(true)}
-            <div id="info-box-wrapper" className=" ml-8 flex flex-col">
-                <InfoBox icon={aymanProfile} title="Title A">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <div id="info-box-wrapper" ref={infoBoxRef} className="ml-8 flex flex-col overflow-y-scroll h-16">
+                <InfoBox ref={refs.a} icon={aymanProfile} title="Title A">
+                    {/* <div onClick={handleTestClick} className="w-10 h-10">TEST ME!</div> */}
+                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
                 </InfoBox>
-                <InfoBox icon={aymanProfile} title="Title B">
-                    Curabitur nec mi congue, semper purus eu, feugiat mauris.
+                <InfoBox ref={refs.b} icon={aymanProfile} title="Title B">
+                    <div ref={titleBRef}>Curabitur nec mi congue, semper purus eu, feugiat mauris.</div>
                 </InfoBox>
-                <InfoBox icon={aymanProfile} title="Title C">
+                {/* <InfoBox icon={aymanProfile} title="Title C">
                     Donec mattis turpis id tortor ullamcorper, et congue odio posuere.
                 </InfoBox>
                 <InfoBox icon={aymanProfile} title="Title D">
                     Aliquam porttitor ex eget massa maximus ultrices.
-                </InfoBox>
+                </InfoBox> */}
             </div>
         </div>
     </>)

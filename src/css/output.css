@@ -581,6 +581,10 @@ video {
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .h-screen {
   height: 100vh;
 }
@@ -591,6 +595,30 @@ video {
 
 .h-12 {
   height: 3rem;
+}
+
+.h-3 {
+  height: 0.75rem;
+}
+
+.h-4 {
+  height: 1rem;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-24 {
+  height: 6rem;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
+.h-20 {
+  height: 5rem;
 }
 
 .w-40 {
@@ -615,6 +643,14 @@ video {
 
 .w-12 {
   width: 3rem;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.w-10 {
+  width: 2.5rem;
 }
 
 .flex-grow {
@@ -647,6 +683,18 @@ video {
 
 .gap-3 {
   gap: 0.75rem;
+}
+
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+
+.overflow-y-visible {
+  overflow-y: visible;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
 }
 
 .rounded-xl {
