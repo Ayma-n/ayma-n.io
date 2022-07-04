@@ -24,7 +24,7 @@ export default function Home() {
         (aboutDivRef.current as HTMLDivElement).style.display = 'none';
         //document.getElementById("info-box-wrapper")?.addEventListener("scroll", handleInfoBoxScroll);
         infoViewerRef.current?.addEventListener("scroll", handleInfoBoxScroll);
-        refs.a.current?.addEventListener("click", handleTestClick)
+        refs.a.current?.addEventListener("click", handleInfoBoxScroll)
     }, [])
 
     const handleAboutClick = () => {
@@ -44,22 +44,17 @@ export default function Home() {
         //     (infoBoxRef.current as HTMLDivElement).style.overflowY = 'scroll';
         // })
 
-        // infoBoxRef.current?.classList.add("moved");
-
+        infoBoxRef.current?.classList.add("moved");
         (infoViewerRef.current as HTMLDivElement).style.overflowY = 'hidden';
-        (infoBoxRef.current as HTMLDivElement).scroll({
-            top: 10000,
-            behavior: 'smooth'
-        });
         // (infoBoxRef.current as HTMLDivElement).scroll({ top: 100, behavior: 'smooth'} )
         // (infoBoxRef.current as HTMLDivElement).style.overflowY = 'visible';
 
-        // infoBoxRef.current?.addEventListener("transitionend", () => {
-        //     (infoViewerRef.current as HTMLDivElement).style.overflowY = 'scroll';
-        //     // infoBoxRef.current?.classList.remove("moved");
-        //     console.log("hello??");
-        // })
-
+        infoBoxRef.current?.addEventListener("transitionend", () => {
+            (infoViewerRef.current as HTMLDivElement).style.overflowY = 'scroll';
+            // infoBoxRef.current?.classList.remove("moved");
+            console.log("hello??");
+        })
+        
 
         // titleBRef.current?.addEventListener("transitionend", () => {
         //     (infoBoxRef.current as HTMLDivElement).style.overflowY = 'scroll';
@@ -67,12 +62,8 @@ export default function Home() {
     }
 
     const handleTestClick = () => {
-        console.log("yes! it has been clicked.");
-        (infoBoxRef.current as HTMLDivElement).scroll({
-            top: 1000,
-            behavior: 'smooth'
-        });
-        // infoBoxRef.current?.classList.add("moved");
+        console.log("yes! it has been clicked.")
+        infoBoxRef.current?.classList.add("moved");
         //titleBRef.current?.scrollIntoView({ behavior: 'smooth' })
     }
 
@@ -141,7 +132,7 @@ export default function Home() {
         <div id="About" ref={aboutDivRef} className="h-screen w-screen flex items-center">
             {renderProfile(true)}
             <div id="info-viewer" ref={infoViewerRef} className="overflow-y-scroll h-32">
-                <div id="info-box-wrapper" ref={infoBoxRef} className="ml-8 flex flex-col overflow-y-scroll h-32 -z-10">
+                <div id="info-box-wrapper" ref={infoBoxRef} className="ml-8 flex flex-col overflow-y-visible">
                     <InfoBox ref={refs.a} icon={aymanProfile} title="Title A">
                         {/* <div onClick={handleTestClick} className="w-10 h-10">TEST ME!</div> */}
                         <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
