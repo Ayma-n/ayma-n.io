@@ -11,6 +11,7 @@ export default function Home() {
     const aboutDivRef = useRef<null | HTMLDivElement>(null);
     const infoBoxRef = useRef<null | HTMLDivElement>(null); // Temporary any here.
     const titleBRef = useRef<null | HTMLDivElement>(null);
+    const infoViewerRef = useRef<null | HTMLDivElement>(null);
 
     const refs = {
         a: useRef<null | HTMLDivElement>(null),
@@ -21,7 +22,9 @@ export default function Home() {
 
     useEffect(() => {
         (aboutDivRef.current as HTMLDivElement).style.display = 'none';
-        document.getElementById("info-box-wrapper")?.addEventListener("scroll", handleInfoBoxScroll);
+        //document.getElementById("info-box-wrapper")?.addEventListener("scroll", handleInfoBoxScroll);
+        infoViewerRef.current?.addEventListener("scroll", handleInfoBoxScroll);
+        refs.a.current?.addEventListener("click", handleInfoBoxScroll)
     }, [])
 
     const handleAboutClick = () => {
@@ -31,14 +34,28 @@ export default function Home() {
 
     const handleInfoBoxScroll = () => {
         console.log("scrolled in info box");
-        (infoBoxRef.current as HTMLDivElement).style.overflowY = 'hidden';
+        // (infoBoxRef.current as HTMLDivElement).style.overflowY = 'hidden';
         // titleBRef.current ? console.log("yes") : console.log("no")
         // titleBRef.current?.classList.add("moved");
-        refs.b.current ? console.log("yes") : console.log("no")
-        refs.b.current?.classList.add("moved");
-        refs.b.current?.addEventListener("transitionend", () => {
-            (infoBoxRef.current as HTMLDivElement).style.overflowY = 'scroll';
+        // refs.b.current ? console.log("yes") : console.log("no")
+
+        // refs.b.current?.classList.add("moved");
+        // refs.b.current?.addEventListener("transitionend", () => {
+        //     (infoBoxRef.current as HTMLDivElement).style.overflowY = 'scroll';
+        // })
+
+        infoBoxRef.current?.classList.add("moved");
+        (infoViewerRef.current as HTMLDivElement).style.overflowY = 'hidden';
+        // (infoBoxRef.current as HTMLDivElement).scroll({ top: 100, behavior: 'smooth'} )
+        // (infoBoxRef.current as HTMLDivElement).style.overflowY = 'visible';
+
+        infoBoxRef.current?.addEventListener("transitionend", () => {
+            (infoViewerRef.current as HTMLDivElement).style.overflowY = 'scroll';
+            // infoBoxRef.current?.classList.remove("moved");
+            console.log("hello??");
         })
+        
+
         // titleBRef.current?.addEventListener("transitionend", () => {
         //     (infoBoxRef.current as HTMLDivElement).style.overflowY = 'scroll';
         // })
@@ -114,20 +131,22 @@ export default function Home() {
         </div>
         <div id="About" ref={aboutDivRef} className="h-screen w-screen flex items-center">
             {renderProfile(true)}
-            <div id="info-box-wrapper" ref={infoBoxRef} className="ml-8 flex flex-col overflow-y-scroll h-16">
-                <InfoBox ref={refs.a} icon={aymanProfile} title="Title A">
-                    {/* <div onClick={handleTestClick} className="w-10 h-10">TEST ME!</div> */}
-                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                </InfoBox>
-                <InfoBox ref={refs.b} icon={aymanProfile} title="Title B">
-                    <div ref={titleBRef}>Curabitur nec mi congue, semper purus eu, feugiat mauris.</div>
-                </InfoBox>
-                {/* <InfoBox icon={aymanProfile} title="Title C">
-                    Donec mattis turpis id tortor ullamcorper, et congue odio posuere.
-                </InfoBox>
-                <InfoBox icon={aymanProfile} title="Title D">
-                    Aliquam porttitor ex eget massa maximus ultrices.
-                </InfoBox> */}
+            <div id="info-viewer" ref={infoViewerRef} className="overflow-y-scroll h-32">
+                <div id="info-box-wrapper" ref={infoBoxRef} className="ml-8 flex flex-col overflow-y-visible">
+                    <InfoBox ref={refs.a} icon={aymanProfile} title="Title A">
+                        {/* <div onClick={handleTestClick} className="w-10 h-10">TEST ME!</div> */}
+                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                    </InfoBox>
+                    <InfoBox ref={refs.b} icon={aymanProfile} title="Title B">
+                        <div ref={titleBRef}>Curabitur nec mi congue, semper purus eu, feugiat mauris.</div>
+                    </InfoBox>
+                    <InfoBox icon={aymanProfile} title="Title C">
+                        Donec mattis turpis id tortor ullamcorper, et congue odio posuere.
+                    </InfoBox>
+                    <InfoBox icon={aymanProfile} title="Title D">
+                        Aliquam porttitor ex eget massa maximus ultrices.
+                    </InfoBox>
+                </div>
             </div>
         </div>
     </>)
