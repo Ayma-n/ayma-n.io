@@ -4,6 +4,7 @@ import "./Home.css"
 import aymanProfile from "./images/ayman-profile.png"
 import githubLogo from "./images/GitHub-Mark-Light-64px.png"
 import linkedinLogo from "./images/linkedin-3-64.png"
+import InfoBox from './InfoBox'
 
 export default function Home() {
 
@@ -19,12 +20,12 @@ export default function Home() {
         aboutDivRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
 
-    const renderProfile = (isWider : boolean) => {
+    const renderProfile = (isWider: boolean) => {
         var imageWidth; isWider ? imageWidth = "w-40 md:w-96 md:ml-48" : imageWidth = "w-20 md:w-72";
         return (
-        <div id="ayman-profile">
-            <img className={"ml-6 pb-3 md:ml-0 md:pb-0 " + imageWidth} src={aymanProfile}></img>
-        </div>
+            <div id="ayman-profile">
+                <img className={"ml-6 pb-3 md:ml-0 md:pb-0 " + imageWidth} src={aymanProfile}></img>
+            </div>
         )
     }
 
@@ -71,6 +72,20 @@ export default function Home() {
         </div>
         <div id="About" ref={aboutDivRef} className="h-screen w-screen flex items-center">
             {renderProfile(true)}
+            <div id="info-box-wrapper" className=" ml-8 flex flex-col">
+                <InfoBox icon={aymanProfile} title="Title A">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </InfoBox>
+                <InfoBox icon={aymanProfile} title="Title B">
+                    Curabitur nec mi congue, semper purus eu, feugiat mauris.
+                </InfoBox>
+                <InfoBox icon={aymanProfile} title="Title C">
+                    Donec mattis turpis id tortor ullamcorper, et congue odio posuere.
+                </InfoBox>
+                <InfoBox icon={aymanProfile} title="Title D">
+                    Aliquam porttitor ex eget massa maximus ultrices.
+                </InfoBox>
+            </div>
         </div>
     </>)
 }
