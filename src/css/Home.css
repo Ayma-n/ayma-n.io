@@ -7,12 +7,15 @@
 }
 
 #info-box-wrapper {
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
     scroll-snap-type: y mandatory;
+    scrollbar-width: none;
 }
 
-#info-box-wrapper > .InfoBox {
+#info-box-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+#info-box-wrapper > .info-box {
     scroll-snap-align: center;
 }
 
@@ -22,9 +25,4 @@
 
 .cst-bg-white-transparent:hover {
     background: rgba(255, 255, 255, 0.10);
-}
-
-.moved {
-    transform: translateY(-80px);
-    transition: transform 1s;
 }

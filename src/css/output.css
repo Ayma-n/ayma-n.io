@@ -677,6 +677,10 @@ video {
   cursor: pointer;
 }
 
+.snap-y {
+  scroll-snap-type: y var(--tw-scroll-snap-strictness);
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -705,6 +709,10 @@ video {
   gap: 2rem;
 }
 
+.overflow-auto {
+  overflow: auto;
+}
+
 .overflow-y-hidden {
   overflow-y: hidden;
 }
@@ -715,6 +723,10 @@ video {
 
 .overflow-y-scroll {
   overflow-y: scroll;
+}
+
+.overscroll-contain {
+  overscroll-behavior: contain;
 }
 
 .rounded-xl {

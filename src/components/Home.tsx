@@ -131,7 +131,7 @@ export default function Home() {
         </div>
         <div id="About" ref={aboutDivRef} className="h-screen w-screen flex items-center">
             {renderProfile(true)}
-            <div id="info-box-wrapper" ref={infoBoxRef} className="ml-8 flex flex-col h-20 gap-8">
+            <div id="info-box-wrapper" ref={infoBoxRef} className="ml-8 flex flex-col h-20 gap-8 overflow-auto overscroll-contain">
                 <InfoBox ref={refs.a} icon={aymanProfile} title="Title A">
                     {/* <div onClick={handleTestClick} className="w-10 h-10">TEST ME!</div> */}
                     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
