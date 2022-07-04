@@ -54,7 +54,7 @@ export default function Home() {
             // infoBoxRef.current?.classList.remove("moved");
             console.log("hello??");
         })
-        
+
 
         // titleBRef.current?.addEventListener("transitionend", () => {
         //     (infoBoxRef.current as HTMLDivElement).style.overflowY = 'scroll';
@@ -131,22 +131,20 @@ export default function Home() {
         </div>
         <div id="About" ref={aboutDivRef} className="h-screen w-screen flex items-center">
             {renderProfile(true)}
-            <div id="info-viewer" ref={infoViewerRef} className="overflow-y-scroll h-32">
-                <div id="info-box-wrapper" ref={infoBoxRef} className="ml-8 flex flex-col overflow-y-visible">
-                    <InfoBox ref={refs.a} icon={aymanProfile} title="Title A">
-                        {/* <div onClick={handleTestClick} className="w-10 h-10">TEST ME!</div> */}
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                    </InfoBox>
-                    <InfoBox ref={refs.b} icon={aymanProfile} title="Title B">
-                        <div ref={titleBRef}>Curabitur nec mi congue, semper purus eu, feugiat mauris.</div>
-                    </InfoBox>
-                    <InfoBox icon={aymanProfile} title="Title C">
-                        Donec mattis turpis id tortor ullamcorper, et congue odio posuere.
-                    </InfoBox>
-                    <InfoBox icon={aymanProfile} title="Title D">
-                        Aliquam porttitor ex eget massa maximus ultrices.
-                    </InfoBox>
-                </div>
+            <div id="info-box-wrapper" ref={infoBoxRef} className="ml-8 flex flex-col h-20 gap-8">
+                <InfoBox ref={refs.a} icon={aymanProfile} title="Title A">
+                    {/* <div onClick={handleTestClick} className="w-10 h-10">TEST ME!</div> */}
+                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                </InfoBox>
+                <InfoBox ref={refs.b} icon={aymanProfile} title="Title B">
+                    <div ref={titleBRef}>Curabitur nec mi congue, semper purus eu, feugiat mauris.</div>
+                </InfoBox>
+                <InfoBox icon={aymanProfile} title="Title C">
+                    Donec mattis turpis id tortor ullamcorper, et congue odio posuere.
+                </InfoBox>
+                <InfoBox icon={aymanProfile} title="Title D">
+                    Aliquam porttitor ex eget massa maximus ultrices.
+                </InfoBox>
             </div>
         </div>
     </>)

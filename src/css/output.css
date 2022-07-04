@@ -557,6 +557,10 @@ video {
   position: fixed;
 }
 
+.-z-10 {
+  z-index: -10;
+}
+
 .ml-6 {
   margin-left: 1.5rem;
 }
@@ -695,6 +699,10 @@ video {
 
 .gap-3 {
   gap: 0.75rem;
+}
+
+.gap-8 {
+  gap: 2rem;
 }
 
 .overflow-y-hidden {
