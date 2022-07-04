@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import "./Home.css"
-import aymanProfile from "./images/ayman-profile.png"
-import githubLogo from "./images/GitHub-Mark-Light-64px.png"
-import linkedinLogo from "./images/linkedin-3-64.png"
+import "../css/Home.css"
+import aymanProfile from "../images/ayman-profile.png"
+import githubLogo from "../images/GitHub-Mark-Light-64px.png"
+import linkedinLogo from "../images/linkedin-3-64.png"
 import InfoBox from './InfoBox'
 
 export default function Home() {

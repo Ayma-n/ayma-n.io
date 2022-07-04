@@ -5,7 +5,7 @@ import Home from './Home';
 import Projects from './Projects';
 import Blog from './Blog';
 
-import "./output.css"
+import "../css/output.css"
 
 function App() {
   return (
