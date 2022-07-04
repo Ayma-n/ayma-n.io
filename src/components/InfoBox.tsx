@@ -6,7 +6,7 @@ interface InfoBoxProps {
     children: ReactNode
 }
 
-const InfoBox = React.forwardRef((props : InfoBoxProps, ref : LegacyRef<HTMLDivElement> | undefined) => {
+const InfoBox = React.forwardRef((props: InfoBoxProps, ref: LegacyRef<HTMLDivElement> | undefined) => {
     return (
         <div id="InfoBox" ref={ref} className="text-white info-box">
             <div id="title-icon" className="flex flex-row items-center gap-3">
