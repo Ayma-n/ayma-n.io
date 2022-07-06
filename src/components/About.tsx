@@ -1,9 +1,13 @@
 import React from 'react'
 import InfoBox from './InfoBox';
 import aymanProfile from "../images/ayman-profile.png";
+import aboutMe from "../images/profile.png";
+import currentOccupation from "../images/scholarship.png";
+import interestCS from "../images/desktop.png";
+import experienceImg from "../images/experience.png";
 
 
-const About = React.forwardRef((props, ref : React.LegacyRef<HTMLDivElement> | undefined) => {
+const About = React.forwardRef((props, ref: React.LegacyRef<HTMLDivElement> | undefined) => {
 
     const renderProfile = (isWider: boolean) => {
         var imageWidth; isWider ? imageWidth = "w-40 md:w-96 md:ml-48" : imageWidth = "w-20 md:w-72";
@@ -17,19 +21,18 @@ const About = React.forwardRef((props, ref : React.LegacyRef<HTMLDivElement> | u
     return (
         <div id="About" ref={ref} className="h-screen w-screen items-center hidden">
             {renderProfile(true)}
-            <div id="info-box-wrapper" className="ml-8 flex flex-col h-20 gap-8 overflow-auto overscroll-contain">
-                <InfoBox icon={aymanProfile} title="Title A">
-                    {/* <div onClick={handleTestClick} className="w-10 h-10">TEST ME!</div> */}
-                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+            <div id="info-box-wrapper" className="ml-8 flex flex-col h-32 gap-8 overflow-auto overscroll-contain">
+                <InfoBox icon={aboutMe} title="About Me">
+                    I was born and raised in Casablanca, Morocco. I went to a French high school, the Lycée Lyautey where I got my French baccalaureate.
                 </InfoBox>
-                <InfoBox icon={aymanProfile} title="Title B">
-                    <div>Curabitur nec mi congue, semper purus eu, feugiat mauris.</div>
+                <InfoBox icon={currentOccupation} title="Current Occupation">
+                    I’m a sophomore at Brown University, in Providence, RI! I plan to concentrate in Computer Science and am expected to graduate in May 2025.
                 </InfoBox>
-                <InfoBox icon={aymanProfile} title="Title C">
-                    Donec mattis turpis id tortor ullamcorper, et congue odio posuere.
+                <InfoBox icon={interestCS} title="Areas of interest in CS">
+                    I’m interested in full-stack web development, game development, as well as AI and Machine Learning.
                 </InfoBox>
-                <InfoBox icon={aymanProfile} title="Title D">
-                    Aliquam porttitor ex eget massa maximus ultrices.
+                <InfoBox icon={experienceImg} title="Experience">
+                    I have experience with Node.js, React and Flutter, but also with Unity. Check out my resume!
                 </InfoBox>
             </div>
         </div>
