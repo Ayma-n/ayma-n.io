@@ -1,38 +1,42 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import client from "./config/sanityClient";
+import ProjectPost from './ProjectPost';
 
 export default function Projects() {
-  const [projects, setProjects] = useState<string[]>([]);
+  const [projects, setProjects] = useState<any[]>([]);
 
-  /**
+  useEffect(() => {
+    /**
    * Fetches all project posts from Sanity.io,
    * and puts them in the "posts" state variable.
    */
-  client.fetch(
-    `*[_type == "project"] {
-      title,
+    client.fetch(
+      `*[_type == "project"] {
+      name,
       slug,
-      body,
+      date,
+      brief,
       mainImage {
-        asset -> {
-          _id,
-          url
-        },
+        url,
         alt
       }
     }`
-  )
-    .then(data => setProjects(data))
-    .catch(console.error)
+    ).then(data => setProjects(data))
+      .catch(console.error)
+  }, [])
+
 
 
   return (<>
     <div>Projects</div>
     <div id="all-projects">
-      {projects.map((pj) => {
-        return <div>
-          {/* {pj.name} */}
-        </div>
+      {projects.map((pj: any) => {
+        return <ProjectPost
+          key={pj.slug.current}
+          name={pj.name}
+          date={pj.date}
+          brief={pj.brief}>·
+        </ProjectPost>
       })}
     </div>
   </>)
