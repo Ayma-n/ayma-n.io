@@ -6,6 +6,7 @@ import Projects from './Projects';
 import Blog from './Blog';
 
 import "./output.css"
+import Project from './Project';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/projects" element={<Projects/>}/>
+          <Route path="/projects/:slug" element={<Project/>}/>
           <Route path="/blog" element={<Blog/>}/>
         </Routes>
       </Router>

@@ -1,10 +1,10 @@
 {
   "root": true,
   "project": {
-    "name": "aymanioprojects"
+    "name": "Portfolio Projects"
   },
   "api": {
-    "projectId": "npvkjf5b",
+    "projectId": "mkga6vti",
     "dataset": "production"
   },
   "plugins": [
