@@ -11,6 +11,19 @@ export default {
             title: 'Project Name'
         },
         {
+            name: 'slug',
+            type: 'slug',
+            title: 'Slug',
+            options: {
+                source: 'name',
+                maxLength: 200, // will be ignored if slugify is set
+                slugify: input => input
+                    .toLowerCase()
+                    .replace(/\s+/g, '-')
+                    .slice(0, 200)
+            }
+        },
+        {
             name: 'date',
             type: 'string',
             title: 'Project Date'

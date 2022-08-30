@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import client from "./config/sanityClient";
 
 export default function Projects() {
-  const [posts, setPosts] = useState<string[]>([]);
+  const [projects, setProjects] = useState<string[]>([]);
 
   /**
    * Fetches all project posts from Sanity.io,
    * and puts them in the "posts" state variable.
    */
   client.fetch(
-    `*[_type == "post"] {
+    `*[_type == "project"] {
       title,
       slug,
       body,
@@ -22,11 +22,18 @@ export default function Projects() {
       }
     }`
   )
-  .then(data => setPosts(data))
-  .catch(console.error)
+    .then(data => setProjects(data))
+    .catch(console.error)
 
 
-  return (
+  return (<>
     <div>Projects</div>
-  )
+    <div id="all-projects">
+      {projects.map((pj) => {
+        return <div>
+          {/* {pj.name} */}
+        </div>
+      })}
+    </div>
+  </>)
 }
